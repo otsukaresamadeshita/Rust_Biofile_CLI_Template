@@ -1,4 +1,4 @@
-# Rust_Bio_CLI_Template
+# Rust Bio CLI Maker Template
 A simple repository for building Biology CLIs in Rust fast.
 
 Follows the structure of the [Rust CLI Tutorial](https://github.com/otsukaresamadeshita/Rust_Bio_CLI_Template).
