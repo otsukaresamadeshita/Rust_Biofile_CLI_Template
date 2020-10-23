@@ -11,7 +11,7 @@ Features:
 </ul>
 
 
-Get Started: Steps to a CLI and a CI repo
+#Get Started: Steps to a CLI and a CI repo
 
 Clone the repository
 
@@ -29,4 +29,11 @@ For CI:
 
 replace all occurrences of 'Rust_Bio_CLI_Template' with what you would like to name your releases
 
+#Crates Used by Filetype
 
+FASTA/FASTQ: Seq_io 
+BAM/SAM:
+Bigwig/wig: bigtools
+Bigbed/bed: bigtools
+vcf: 
+Tabix: 
