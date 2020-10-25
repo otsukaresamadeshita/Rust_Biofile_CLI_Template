@@ -7,8 +7,9 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-structopt = "0.3.20"
+structopt = "0.3.20" #use for all file types
 #bam = "0.1.1" #for bam or sam,
 #seq_io = "0.3.1" #for fastq, fasta
-bio = "0.32.0" #for gff
-#bigtools = "0.1.2" #for bigwig, wig, bigbed, bed,
+#bio = "0.32.0" #for gff
+#bigtools = "0.1.2" #for bigwig, wig, bigbed, bed
+#bgzip = "0.1.0" #tabix todo

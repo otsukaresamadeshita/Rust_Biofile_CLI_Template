@@ -24,10 +24,10 @@ struct Cli {
 //     let args = Cli::from_args();
 //     let filestr = std::fs::read_to_string(&args.infile)
 //     .expect("could not read file");
+//     let mut reader = bam::IndexedReader::from_path(filestr).unwrap();
 
 //     // Do Stuff
 //     // Documentation Example below: https://docs.rs/bam/0.1.1/bam/
-//     let mut reader = bam::IndexedReader::from_path(filestr).unwrap();
 //     let output = io::BufWriter::new(io::stdout());
 //     let mut writer = bam::BamWriter::build()
 //         .write_header(false)
@@ -49,10 +49,10 @@ struct Cli {
 //     let args = Cli::from_args();
 //     let filestr = std::fs::read_to_string(&args.infile)
 //     .expect("could not read file");
+//     let reader = SamReader::from_path("in.sam").unwrap();
 
 //     // Do something.
 //     // Documentation Example: https://docs.rs/bam/0.1.1/bam/sam/struct.SamReader.html
-//     let reader = SamReader::from_path("in.sam").unwrap();
 //     let mut reader = bam::SamReader::from_path("in.sam").unwrap();
 //     for record in reader {
 //         let record = record.unwrap();
@@ -70,10 +70,10 @@ struct Cli {
 //     let args = Cli::from_args();
 //     let filestr = std::fs::read_to_string(&args.infile)
 //     .expect("could not read file");
+//     let mut reader = Reader::from_path(filestr).unwrap();
 
 //     // Do something.
 //     // Documentation Example: https://docs.rs/seq_io/0.3.1/seq_io/
-//     let mut reader = Reader::from_path(filestr).unwrap();
 //     while let Some(record) = reader.next() {
 //         let record = record.expect("Error reading record");
 //         println!("{}", record.id().unwrap());
@@ -91,10 +91,10 @@ struct Cli {
 //     let args = Cli::from_args();
 //     let filestr = std::fs::read_to_string(&args.infile)
 //     .expect("could not read file");
+//     let mut reader = Reader::from_path(filestr).unwrap();
 
 //     // Do something.
 //     // Documentation Example: https://docs.rs/seq_io/0.3.1/seq_io/
-//     let mut reader = Reader::from_path(filestr).unwrap();
 //     while let Some(record) = reader.next() {
 //         let record = record.expect("Error reading record");
 //         println!("{}", record.id().unwrap());
@@ -102,3 +102,62 @@ struct Cli {
 // }
 // // -------------------------------Stop FASTA file-------------------------------
 
+// // -------------------------------GFF file-------------------------------
+// use std::io;
+// use bio::io::gff;
+
+// fn main() {
+//     let args = Cli::from_args();
+//     let filestr = std::fs::read_to_string(&args.infile)
+//     .expect("could not read file");
+//     let mut reader = gff::Reader::from_file(filestr, gff::GffType::GFF3).unwrap();
+
+// //     // Do something.
+// //     // Documentation Example: 
+
+//     let mut writer = gff::Writer::new(vec![], gff::GffType::GFF3);
+//     for record in reader.records() {
+//         let rec = record.ok().expect("Error reading record.");
+//         println!("{}", rec.seqname());
+//         writer.write(&rec).ok().expect("Error writing record.");
+//     }
+// }
+// // -------------------------------Stop GFF file-------------------------------
+
+
+// // -------------------------------Bigwig file-------------------------------
+// use bigtools::bigwigread::BigWigRead;
+
+// fn main() {
+//     let args = Cli::from_args();
+//     let filestr = std::fs::read_to_string(&args.infile)
+//     .expect("could not read file");
+//     let mut reader = BigWigRead::from_file_and_attach(&filestr).unwrap();
+
+    // //     // Do something.
+    // //     // Documentation Example: https://docs.rs/crate/bigtools/0.1.2
+    // let chr1 = reader.get_interval("chr1", 0, 10000).unwrap();
+    // for interval in chr1 {
+    //     println!("{:?}", interval);
+    // }
+// }
+
+// // -------------------------------Stop Bigwig file-------------------------------
+// for other 'big' files, use same structure as above, only edit
+// use bigtools:: and bedparser
+// // -------------------------------Stop Bigwig file-------------------------------
+
+
+// // -------------------------------Tabix file-------------------------------
+// use bgzip::{BGZFReader, BGZFError};
+// use std::io::{self, BufRead};
+// use std::fs;
+
+// fn main() {
+//     let args = Cli::from_args();
+//     let filestr = std::fs::read_to_string(&args.infile)
+//     .expect("could not read file");
+//     let mut reader = BGZFReader::new(filestr);
+//     let mut line = String::new();
+// }
+// // -------------------------------Stop Tabix file-------------------------------
